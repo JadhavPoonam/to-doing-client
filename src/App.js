@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Register from './components/register'
+import Login from './components/login'
 import todologo from './assets/todologo.svg'
-import reactlogo from './assets/reactlogo.svg'
 import './App.css';
 
 class App extends Component {
@@ -17,6 +17,7 @@ class App extends Component {
           <p className="App-intro">
           </p>
           <Register />
+          <Login />
           <footer>
           </footer>
         </div>
