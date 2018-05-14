@@ -3,6 +3,7 @@ import TextField from 'material-ui/TextField'
 import Button from 'material-ui/Button';
 import Card, { CardActions, CardContent } from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
+import { Redirect } from 'react-router-dom'
 
 const style = {
   margin: 4,
@@ -38,7 +39,7 @@ class Login extends Component {
 
   loginUser(event) {
     event.preventDefault();
-    fetch('http://localhost:5000/api/auth/login', {
+    return fetch('http://localhost:5000/api/auth/login', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -51,6 +52,11 @@ class Login extends Component {
     })
     .then(this.toJSON)
     .then(this.setAuthTokenSessionStorage)
+    .then(() => {
+      console.log("in dashboard redirect");
+      return <Redirect to="/dashboard" />
+    }
+   )
   }
 
 
