@@ -3,6 +3,7 @@ import TextField from 'material-ui/TextField'
 import Button from 'material-ui/Button';
 import Card, { CardActions, CardContent } from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
+import { Redirect, withRouter } from 'react-router-dom';
 
 const style = {
   margin: 4,
@@ -51,6 +52,7 @@ class Login extends Component {
     })
     .then(this.toJSON)
     .then(this.setAuthTokenSessionStorage)
+    .then(() => this.props.history.push("/dashboard"))
   }
 
 
@@ -78,4 +80,4 @@ class Login extends Component {
   }
 }
 
-export default Login
+export default withRouter(Login)
