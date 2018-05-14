@@ -16,9 +16,6 @@ class Home extends Component {
         </Grid>
         <Grid item xs={2}><Login /></Grid>
         <Grid item xs={4}></Grid>
-
-        {/* <Grid item md={6}>{<Register />}</Grid> */}
-        {/* <Grid item md={6}>{<Login />}</Grid> */}
       </Grid>
     )
   }
