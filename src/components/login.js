@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import TextField from 'material-ui/TextField'
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from 'material-ui/Button';
+import Card, { CardActions, CardContent } from 'material-ui/Card';
+import Typography from 'material-ui/Typography';
 
 const style = {
   margin: 4,
@@ -46,13 +48,22 @@ class Login extends Component {
   render() {
     return (
       <form onSubmit={this.loginUser}>
-        <TextField hintText="Email" value={this.state.email} name="email" onChange={this.handleChangeEmail} />
-        <br/>
-        <TextField hintText="Password" type="password" value={this.state.password} name="password" onChange={this.handleChangePassword} />
-        <br/>
-        <br/>
-        <RaisedButton label="Cancel" style={style} />
-        <RaisedButton label="Login" primary={true} style={style} type='submit' />
+        <Card>
+          <CardContent>
+            <Typography className="cardTitle" color="textSecondary">
+            Log In
+            </Typography>
+            <TextField label="Email" value={this.state.email} name="email" onChange={this.handleChangeEmail} />
+            <br/>
+            <TextField label="Password" type="password" value={this.state.password} name="password" onChange={this.handleChangePassword} />
+            <br/>
+            <br/>
+          </CardContent>
+          <CardActions>
+            <Button variant="raised" style={style}>Cancel</Button>
+            <Button variant="raised" color="primary" style={style} type='submit'>Login</Button>
+          </CardActions>
+        </Card>
       </form>
     )
   }

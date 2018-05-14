@@ -1,27 +1,24 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import Register from './components/register'
-import Login from './components/login'
+import CssBaseline from 'material-ui/CssBaseline'
+import Home from './components/home'
 import todologo from './assets/todologo.svg'
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <MuiThemeProvider>
         <div className="App">
+          <CssBaseline />
           <header className="App-header">
             <img src={todologo} className="App-logo" alt="logo" />
             <h1 className="App-title">ToDo-ing</h1>
           </header>
           <p className="App-intro">
           </p>
-          <Register />
-          <Login />
+          <Home />
           <footer>
           </footer>
         </div>
-      </MuiThemeProvider>
     );
   }
 }

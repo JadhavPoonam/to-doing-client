@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import TextField from 'material-ui/TextField'
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from 'material-ui/Button';
+import Card, { CardActions, CardContent } from 'material-ui/Card';
+import Typography from 'material-ui/Typography';
 
 const style = {
   margin: 4,
@@ -61,21 +63,29 @@ class Register extends Component {
   render() {
     return (
       <form onSubmit={this.registerUser}>
-        <TextField hintText="First Name" value={this.state.firstName} name="firstName" onChange={this.handleChangeFirstName} />
-        <br/>
-        <TextField hintText="Last Name" value={this.state.lastName} name="lastName" onChange={this.handleChangeLastName} />
-        <br/>
-        <TextField hintText="Email" value={this.state.email} name="email" onChange={this.handleChangeEmail} />
-        <br/>
-        <TextField hintText="Password" type="password" value={this.state.password} name="password" onChange={this.handleChangePassword} />
-        <br/>
-        <br/>
-        <RaisedButton label="Cancle" style={style} />
-        <RaisedButton label="Register" primary={true} style={style} type='submit' />
+        <Card>
+          <CardContent>
+            <Typography className="cardTitle" color="textSecondary">
+              Sign Up
+            </Typography>
+            <TextField label="First Name" value={this.state.firstName} name="firstName" onChange={this.handleChangeFirstName} />
+            <br/>
+            <TextField label="Last Name" value={this.state.lastName} name="lastName" onChange={this.handleChangeLastName} />
+            <br/>
+            <TextField label="Email" value={this.state.email} name="email" onChange={this.handleChangeEmail} />
+            <br/>
+            <TextField label="Password" type="password" value={this.state.password} name="password" onChange={this.handleChangePassword} />
+            <br/>
+            <br/>
+          </CardContent>
+          <CardActions>
+            <Button variant="raised" style={style}>Cancel</Button>
+            <Button variant="raised" color="primary" style={style} type='submit'>Register</Button>
+          </CardActions>
+        </Card>
       </form>
     )
   }
-
 }
 
 export default Register
