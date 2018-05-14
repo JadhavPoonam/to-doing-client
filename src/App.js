@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CssBaseline from 'material-ui/CssBaseline'
 import Home from './components/home'
 import Dashboard from './components/dashboard'
-import ProtectedRoute from './components/protectedRoute'
+import Unauthorized from './components/unauthorized'
 import todologo from './assets/todologo.svg'
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -22,7 +22,8 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Home}/>
               <Route exact path="/home" component={Home}/>
-              <ProtectedRoute path="/dashboard" component={Dashboard}/>
+              <Route path="/unauthorized" component={Unauthorized} />
+              <Route path="/dashboard" component={Dashboard}/>
               {/* <Route exact path="/*" component={PageNotFound}/> */}
             </Switch>
           </Router>

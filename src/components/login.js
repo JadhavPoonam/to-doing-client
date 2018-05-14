@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField'
 import Button from 'material-ui/Button';
 import Card, { CardActions, CardContent } from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
-import { Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 const style = {
   margin: 4,
@@ -37,9 +37,13 @@ class Login extends Component {
     sessionStorage.setItem("auth_token", JSON.parse(data).auth_token);
   }
 
+  handleError(data) {
+    console.log('handling: ', Object.keys(data), data);
+  }
+
   loginUser(event) {
     event.preventDefault();
-    fetch('http://localhost:5000/api/auth/login', {
+    return fetch('http://localhost:5000/api/auth/login', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -53,6 +57,7 @@ class Login extends Component {
     .then(this.toJSON)
     .then(this.setAuthTokenSessionStorage)
     .then(() => this.props.history.push("/dashboard"))
+    .catch(err => this.props.history.push("/unauthorized"))
   }
 
 

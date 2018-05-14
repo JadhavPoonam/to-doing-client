@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import withToken from './withToken'
 
 class Dashboard extends Component {
 
@@ -7,4 +8,4 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard
+export default withToken(Dashboard)
