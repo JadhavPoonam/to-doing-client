@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import CssBaseline from 'material-ui/CssBaseline'
 import Home from './components/home'
+import Dashboard from './components/dashboard'
 import todologo from './assets/todologo.svg'
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   render() {
@@ -15,7 +17,12 @@ class App extends Component {
           </header>
           <p className="App-intro">
           </p>
-          <Home />
+          <Router>
+            <Switch>
+              <Route exact path="/" component={Home}/>
+              <Route path="/dashboard" component={Dashboard}/>
+            </Switch>
+          </Router>
           <footer>
           </footer>
         </div>
