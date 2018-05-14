@@ -1,5 +1,4 @@
 var validate = function() {
-  console.log('in validate');
   const auth_token = sessionStorage.getItem("auth_token");
   const headers = {
             'Accept': 'application/json',
@@ -11,9 +10,7 @@ var validate = function() {
     headers: headers,
   })
   .then(response => response.json())
-  .then(data => {
-    return true;
-  })
+  .then(data => true)
   .catch(err => false)
 }
 
