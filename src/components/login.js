@@ -28,6 +28,14 @@ class Login extends Component {
       this.setState({password: event.target.value});
   }
 
+  toJSON(data) {
+    return data.json()
+  }
+
+  setAuthTokenSessionStorage(data) {
+    sessionStorage.setItem("auth_token", JSON.parse(data).auth_token);
+  }
+
   loginUser(event) {
     event.preventDefault();
     fetch('http://localhost:5000/api/auth/login', {
@@ -40,10 +48,11 @@ class Login extends Component {
         username: this.state.email,
         password: this.state.password
       })
-    }).then((response) => {
-      console.log(response.json());
     })
+    .then(this.toJSON)
+    .then(this.setAuthTokenSessionStorage)
   }
+
 
   render() {
     return (
