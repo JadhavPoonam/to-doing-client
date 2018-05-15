@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
-import withToken from './withToken'
+import { Grid } from 'material-ui'
+
+import AddItem from './addItem'
 import Items from './items'
+import withToken from './withToken'
 
 class Dashboard extends Component {
   constructor() {
@@ -26,7 +29,14 @@ class Dashboard extends Component {
   }
   render() {
     return (
-      <Items items={this.state.items} />
+      <Grid container>
+        <Grid item md={6}>
+          <AddItem />
+        </Grid>
+        <Grid item md={6}>
+          <Items items={this.state.items} />
+        </Grid>
+      </Grid>
     )
   }
 }
