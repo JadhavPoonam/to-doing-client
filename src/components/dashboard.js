@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import withToken from './withToken'
-import { List, ListItem, ListItemText } from 'material-ui'
+import Items from './items'
 
 class Dashboard extends Component {
   constructor() {
@@ -26,15 +26,7 @@ class Dashboard extends Component {
   }
   render() {
     return (
-      <List>
-        {
-          this.state.items.map(item => (
-            <ListItem key={item.id}>
-              <ListItemText primary={item.name} secondary="Jan 9, 2014" />
-            </ListItem>
-          ))
-        }
-      </List>
+      <Items items={this.state.items} />
     )
   }
 }
