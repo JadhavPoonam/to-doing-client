@@ -11,8 +11,12 @@ class Dashboard extends Component {
     this.state = {
       items: []
     }
+    this.update = this.update.bind(this);
   }
   componentWillMount() {
+    this.update()
+  }
+  update() {
     const auth_token = sessionStorage.getItem("auth_token");
     const headers = {
       'Accept': 'application/json',
@@ -23,15 +27,15 @@ class Dashboard extends Component {
       method: 'GET',
       headers: headers,
     })
-      .then(response => response.json())
-      .then(data => this.setState({ items: data }))
-      .catch(err => false)
+    .then(response => response.json())
+    .then(data => this.setState({ items: data }))
+    .catch(err => false)
   }
   render() {
     return (
       <Grid container>
         <Grid item md={6}>
-          <AddItem />
+          <AddItem updateItems={this.update} />
         </Grid>
         <Grid item md={6}>
           <Items items={this.state.items} />
