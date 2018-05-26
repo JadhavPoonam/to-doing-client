@@ -1,22 +1,22 @@
-## Description
+# Description
 
 A project to demostrate the UI of a to-do app.
 
-## Technology Stack
+# Technology Stack
 
-# Frontend Framework
+## Frontend Framework
 
 ReactJS
 
-# Dependency Manager
+## Dependency Manager
 
 NPM or Yarn
 
-# Javascript
+## Javascript
 
 ES6
 
-# State Management
+## State Management
 
 Redux
 
@@ -27,3 +27,11 @@ Material Design using the library Material-UI
 ## Version Control System
 
 Git
+
+## Web Server
+
+nginx
+
+## Container
+
+Docker
