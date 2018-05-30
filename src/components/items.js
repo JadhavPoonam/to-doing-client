@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import withToken from './withToken'
-import { Divider, List, ListItem, ListItemText } from 'material-ui'
+import { Button, Divider, List, ListItem, ListItemText, IconButton } from 'material-ui'
 
 class Items extends Component {
   render() {
@@ -14,6 +14,7 @@ class Items extends Component {
             items.map(item => (
               <ListItem key={item.id}>
                 <ListItemText primary={item.name} secondary="Jan 9, 2014" />
+                <Button variant="raised" color="primary" style={{ margin: 10 }}>Edit</Button>
               </ListItem>
             ))
           }
