@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Grid } from 'material-ui'
-
 import AddItem from './addItem'
 import Items from './items'
 import withToken from './withToken'
+import Divider from 'material-ui/Divider';
 
 class Dashboard extends Component {
   constructor() {
@@ -33,13 +33,18 @@ class Dashboard extends Component {
   }
   render() {
     return (
-      <Grid container>
-        <Grid item md={6}>
+      <Grid container spacing={24}>
+        <Grid item xs={2}></Grid>
+        <Grid item xs={4}>
           <AddItem updateItems={this.update} />
         </Grid>
-        <Grid item md={6}>
+        <Grid item xs={false}>
+          <Divider className="verticalDivider" />
+        </Grid>
+        <Grid item xs={4}>
           <Items items={this.state.items} />
         </Grid>
+        <Grid item xs={2}></Grid>
       </Grid>
     )
   }
