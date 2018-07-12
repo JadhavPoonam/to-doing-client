@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
 import withToken from './withToken'
-import { Button, Divider, List, ListItem, ListItemText, IconButton } from 'material-ui'
+import { Divider, List, ListItem, ListItemText } from 'material-ui'
+import Icon from '@material-ui/core/Icon';
+import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
+import IconButton from '@material-ui/core/IconButton';
+import EditIcon from '@material-ui/icons/Edit';
 
 class Items extends Component {
 
@@ -41,15 +46,19 @@ class Items extends Component {
       const { items } = this.state;
       return (
         <div>
-          <h3>To do</h3>
+          <h3>Items on your TO DO list</h3>
           <Divider />
           <List>
             {
               items.map(item => (
                 <ListItem key={item.id}>
                   <ListItemText primary={item.name} secondary="Jan 9, 2014" />
-                  <Button variant="raised" color="primary" style={{ margin: 10 }}>Edit</Button>
-                  <Button variant="raised" color="secondary" style={{ margin: 10 }} onClick={this.deleteItem.bind(this, item.id)}>Delete</Button>
+                  <IconButton variant="fab" color="primary" style={{ margin: 10 }}>
+                    <EditIcon />
+                  </IconButton>
+                  <IconButton variant="fab" color="secondary" style={{ margin: 10 }} onClick={this.deleteItem.bind(this, item.id)}>
+                    <DeleteIcon />
+                  </IconButton>
                 </ListItem>
               ))
             }

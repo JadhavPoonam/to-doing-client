@@ -1,6 +1,15 @@
 import React, { Component } from 'react'
 import withToken from './withToken'
-import { Button, Divider, TextField } from 'material-ui'
+import { Divider, TextField } from 'material-ui'
+import Button from '@material-ui/core/Button';
+import blue from '@material-ui/core/colors/blue';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: blue
+  },
+});
 
 class AddItem extends Component {
   constructor() {
@@ -43,15 +52,17 @@ class AddItem extends Component {
       .then(() => this.reset())
       .catch(err => this.props.history.push("/unauthorized"))
     }
-    
+
   }
   render() {
     return (
       <div>
         <h3>Add Item</h3>
         <Divider />
-        <TextField label="name" value={this.state.name} onChange={this.handleChangeName('name')} /><br />
-        <Button variant="raised" color="primary" style={{ margin: 10 }} onClick={this.addItem}>Add</Button>
+        <TextField label="name" value={this.state.name} onChange={this.handleChangeName('name')} />
+        <MuiThemeProvider theme={theme}>
+          <Button variant="raised" color="primary" style={{ margin: 10 }} onClick={this.addItem}>Add</Button>
+        </MuiThemeProvider>
       </div>
     )
   }
